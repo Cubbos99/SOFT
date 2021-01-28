@@ -36,6 +36,7 @@ for j = 1:100000
 end
 end
 function hijos_dev = comprobar_hijos(hijos, tam_pob, mu)
+hijos_dev=zeros(mu, tam_pob);
     for i=1:mu
         for j=1:tam_pob
             if hijos(i,j)<-100
