@@ -25,7 +25,6 @@ toc;
 fitness
 
 for j=1:300
-    j
     %HMCR
     hijos=zeros(30,400);
     for k=1:30
@@ -64,19 +63,16 @@ for j=1:300
        end
        
        diferencia=contador-20; 
-       if diferencia>0
-                
+       if diferencia>0               
             while(diferencia~=0)
-                numero = randsample(indices,1);
-                
+                numero = randsample(indices,1);                
                 if hijos(o,numero)==1
                     hijos(o,numero)=0;
                     diferencia=diferencia-1;
                 end
             end
        
-        elseif diferencia<0
-            
+        elseif diferencia<0           
             while(diferencia~=0)
                 numero=(400-1).*rand(1)+1;
                 numero=int16(numero);
@@ -84,17 +80,13 @@ for j=1:300
                     hijos(o,numero)=1;
                     diferencia=diferencia+1;
                 end
-            end
-        
-        end 
-        
+            end        
+        end         
     end
     
      %PAR
-    for s=1:30
-       
-        for d=1:400
-           
+    for s=1:30       
+        for d=1:400          
             probabilidad_par=rand;
             if(probabilidad_par<=0.03)
                 valor_aleatorio_par=rand;
@@ -107,30 +99,7 @@ for j=1:300
             end
         end
     end
-         
-    %{ 
-    RSR
-    
-    for s=1:30
-       
-        for d=1:400
-           
-            probabilidad_rsr=rand(1);
-            if(probabilidad_rsr<0.03)
-                valor_aleatorio_rsr=rand(1);
-                if(valor_aleatorio_rsr)<0.5
-                    valor=0;
-                else 
-                    valor=1;
-                end
-            hijos(s,d)=valor;
-            end
-        end
-    end
-    %}
-    
-    
-    
+     
     %ajustamos 1s
     for o=1:30
        contador=0;
@@ -170,14 +139,12 @@ for j=1:300
                     hijos(o,numero)=1;
                     diferencia=diferencia+1;
                 end
-            end
-        
+            end        
         end 
-        
     end      
+      
     
-    
-   
+    %calcular fitness
     for y=1:30
         
         hijos_matriz=reshape(hijos(y,:),[20,20]);     
